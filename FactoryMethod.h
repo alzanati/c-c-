@@ -7,8 +7,10 @@
 namespace DesignPatterns {
 
 class NoImplementationException : public std::exception{
-    const char* what() const throw () {
-        return "NoImplementationException";
+
+public:
+    virtual const char* what() const throw () {
+        return "No Implementation Exception";
     }
 };
 
