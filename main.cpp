@@ -9,10 +9,9 @@ int main(int argc, char *argv[])
     try {
         auto account = savings->GetSavingsAccount("CITyI");
         std::cout << account->ToString().c_str() << std::endl;
-    } catch (DesignPatterns::NoImplementationException* ex) {
+    }
+    catch (DesignPatterns::NoImplementationException* ex) {
         std::cout << ex->what() << std::endl;
     }
-
-
     return 0;
 }
