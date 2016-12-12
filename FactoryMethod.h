@@ -21,8 +21,12 @@ class BaseFactoryObject {
 
 public:
     virtual std::string ToString() = 0;
-};
 
+    // virtual destructor to accomplish polymorphism
+    virtual ~BaseFactoryObject() {
+
+    }
+};
 
 // product
 class ISavingsAccount : public BaseFactoryObject {
@@ -34,67 +38,76 @@ public:
 
     virtual std::string ToString() = 0;
 
+    // virtual destructor to accomplish polymorphism
+    virtual ~ISavingsAccount() {
+
+    }
+
 protected:
     double Balance;
 };
-
 
 // concrete product
 class CitiSavingsAcct : public ISavingsAccount {
 
 public:
-    CitiSavingsAcct()
-    {
+    CitiSavingsAcct() {
         SetBalance(53255.34);
     }
 
-    void SetBalance(double balance)
-    {
+    void SetBalance(double balance) {
         Balance = balance;
     }
 
-    double GetBalance()
-    {
+    double GetBalance() {
         return Balance;
     }
 
-    std::string ToString()
-    {
+    std::string ToString() {
         return "CitiSavingsAcct";
     }
-};
 
+    // virtual destructor to accomplish polymorphism
+    virtual ~CitiSavingsAcct() {
+
+    }
+};
 
 // concrete product
 class NationalSavingsAcct : public ISavingsAccount {
 
 public:
-    NationalSavingsAcct()
-    {
+    NationalSavingsAcct() {
         SetBalance(7584.34);
     }
 
-    void SetBalance(double balance)
-    {
+    void SetBalance(double balance) {
         Balance = balance;
     }
 
-    double GetBalance()
-    {
+    double GetBalance() {
         return Balance;
     }
 
-    std::string ToString()
-    {
+    std::string ToString() {
         return "NationalSavingsAcct";
     }
-};
 
+    // virtual destructor to accomplish polymorphism
+    virtual ~NationalSavingsAcct() {
+
+    }
+};
 
 // creatore
 class ICreditUnionFactory {
 public:
     virtual ISavingsAccount* GetSavingsAccount(std::string acctNo) = 0;
+
+    // virtual destructor to accomplish polymorphism
+    virtual ~ICreditUnionFactory() {
+
+    }
 };
 
 class SavingsAcctFactory : public ICreditUnionFactory {
