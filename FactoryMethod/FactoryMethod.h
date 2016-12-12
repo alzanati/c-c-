@@ -1,31 +1,16 @@
 #ifndef FACTORYMETHOD
 #define FACTORYMETHOD
 #include <iostream>
-#include <string.h>
-#include <exception>
+#include "Utility.h"
+#include "Exceptions.h"
 
 namespace DesignPatterns {
 
-class NoImplementationException : public std::exception{
-
-public:
-    virtual const char* what() const throw () {
-        return "No Implementation Exception";
-    }
-};
 
 namespace FactoryMethod {
 
-// base utilites
-class BaseFactoryObject {
-
-public:
-    virtual std::string ToString() = 0;
-};
-
-
 // product
-class ISavingsAccount : public BaseFactoryObject {
+class ISavingsAccount : public Utility::BaseFactoryObject {
 
 public:
     virtual void SetBalance(double balance) = 0;
@@ -107,7 +92,7 @@ public:
             return new NationalSavingsAcct();
         }
         else {
-            throw new NoImplementationException();
+            throw new Exceptions::NoImplementationException();
         }
     }
 };

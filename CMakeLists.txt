@@ -5,10 +5,14 @@ project(DesignPatterns)
 cmake_minimum_required(VERSION 2.8)
 
 # add support of c++11
-add_definitions(-std=c++11)
+#add_definitions(-std=c++11)
+set (CMAKE_CXX_STANDARD 11)
 
 # add source files
 aux_source_directory(. SRC_LIST)
+
+# include Utilites
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/Utilities)
 
 # include FactoryMethod
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/FactoryMethod)
