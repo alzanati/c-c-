@@ -25,4 +25,4 @@ file(GLOB_RECURSE SINGELTON Singelton.h)
 add_library(SING SHARED ${SINGELTON} ${SRC_LIST})
 
 # compile and generate exe
-add_executable(${PROJECT_NAME} ${SING} ${FACT_METHOD} ${SRC_LIST})
+add_executable(${PROJECT_NAME} ${FACT_METHOD} ${SRC_LIST})
